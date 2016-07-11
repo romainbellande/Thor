@@ -9,5 +9,4 @@ class Thor
 
   Model: require \./Model
 
-
 module.exports = new Thor

@@ -1,5 +1,5 @@
 require! {
-  QueryBuilder: \./QueryBuilder
+  \./QueryBuilder : QueryBuilder
 }
 
 class Model

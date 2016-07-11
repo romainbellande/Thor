@@ -1,8 +1,8 @@
 require! {
-  Thor: \..
+  \. : Thor
 }
 
-User = Thor.Model \user
+User = new Thor.Model \user
 
 User
   .fetch!

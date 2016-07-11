@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/romainbellande/Thor/issues"
   },
-  "homepage": "https://github.com/romainbellande/Thor#readme"
+  "homepage": "https://github.com/romainbellande/Thor#readme",
+  "dependencies": {
+    "bluebird": "^3.4.1"
+  }
 }
