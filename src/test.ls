@@ -2,7 +2,15 @@ require! {
   \. : Thor
 }
 
-User = new Thor.Model \user
+Thor.config do
+  db:
+    type: 'mysql'
+    host     : '127.0.0.1'
+    user     : 'root'
+    password : 'root'
+    database : 'test'
+
+User = Thor.Model \user
 
 User
   .fetch!

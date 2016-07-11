@@ -4,7 +4,8 @@ require! {
 
 class Model
 
-  (@name, @config) ->
+  (@name, @adapter) ->
+
 
   fetch: ->
     new QueryBuilder @
