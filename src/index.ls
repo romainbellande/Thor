@@ -7,5 +7,7 @@ class Thor
   config: (@config) ->
     # Add corresponding adapter
 
+  Model: require \./Model
+
 
 module.exports = new Thor
