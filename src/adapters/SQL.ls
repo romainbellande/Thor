@@ -1,6 +1,7 @@
 require! {
   knex
   \./Adapter
+  \prelude-ls : {each}
 }
 
 class SQL extends Adapter
@@ -15,7 +16,17 @@ class SQL extends Adapter
     @driver = knex @config
 
   query: (builder) ->
-    @driver builder.model.name
-      .select \*
+
+    query = @driver builder.model.name
+
+    builder.queries |> each ~>
+      query := @[it.method] query, it.params
+
+    query
+
+<[ select where ]>
+  |> each (name) ->
+    SQL::[name] = (query, params) ->
+      query.select params
 
 module.exports = SQL

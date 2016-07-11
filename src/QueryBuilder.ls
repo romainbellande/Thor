@@ -1,14 +1,27 @@
 require! {
   bluebird : Promise
   \./adapters/Adapter
+  \prelude-ls : {each}
 }
 
 class QueryBuilder
 
+  queries: []
+
   (@model) ->
 
-  then: (cb) ->
+  then: (done) ->
     @model.adapter.query @
-      .then cb
-      
+      .then done
+
+_createMiddleware = (name) ->
+  QueryBuilder::[name] = ->
+    @queries.push do
+      method: name
+      params: it
+    @
+
+<[ select where ]>
+  |> each _createMiddleware
+
 module.exports = QueryBuilder

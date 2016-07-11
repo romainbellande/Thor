@@ -1,11 +1,10 @@
 require! {
-  \./QueryBuilder : QueryBuilder
+  \./QueryBuilder
 }
 
 class Model
 
   (@name, @adapter) ->
-
 
   fetch: ->
     new QueryBuilder @

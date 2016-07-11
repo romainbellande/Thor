@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/romainbellande/Thor#readme",
   "dependencies": {
-    "bluebird": "^3.4.1"
+    "bluebird": "^3.4.1",
+    "prelude-ls": "^1.1.2"
   },
   "devDependencies": {
     "knex": "^0.11.7"
