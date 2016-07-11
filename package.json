@@ -21,6 +21,7 @@
     "prelude-ls": "^1.1.2"
   },
   "devDependencies": {
-    "knex": "^0.11.7"
+    "knex": "^0.11.7",
+    "mongodb": "^2.2.1"
   }
 }
