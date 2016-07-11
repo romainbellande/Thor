@@ -21,7 +21,7 @@ _createMiddleware = (name) ->
       params: it
     @
 
-<[ select where ]>
+<[ select where limit ]>
   |> each _createMiddleware
 
 module.exports = QueryBuilder

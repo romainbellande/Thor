@@ -1,7 +1,7 @@
 require! {
   knex
   \./Adapter
-  \prelude-ls : {each}
+  \prelude-ls : {each, obj-to-pairs, is-type, keys}
 }
 
 class SQL extends Adapter
@@ -24,9 +24,26 @@ class SQL extends Adapter
 
     query
 
-<[ select where ]>
+  where: (query, params) ->
+    params
+      |> obj-to-pairs
+      |> each ->
+        if is-type \Array it.1
+          query := query.whereIn ...it
+        else if is-type \Object it.1
+          it.1
+            |> keys
+            |> each (...) ->
+              | \$gt => query.where it.0, \>, it.1.$gt
+        else
+          query := query.where ...it
+
+    query
+
+
+<[ select limit ]>
   |> each (name) ->
     SQL::[name] = (query, params) ->
-      query.select params
+      query[name] params
 
 module.exports = SQL
