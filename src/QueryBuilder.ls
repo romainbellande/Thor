@@ -12,7 +12,7 @@ class QueryBuilder
 
   then: (done) ->
     @model.adapter.query @
-      .then done
+      # .then done
 
 _createMiddleware = (name) ->
   QueryBuilder::[name] = ->
